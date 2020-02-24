@@ -36,7 +36,7 @@ setup(
         'Programming Language :: Python :: 3.7',
     ],
     install_requires=[
-        'digitalocean==1.15.0'
+        'python-digitalocean==1.15.0'
     ],
     test_suite='tests',
     license='MIT'

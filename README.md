@@ -37,7 +37,6 @@ from daab import DAAB
 daab = DAAB('<DIGITALOCEAN_API_KEY>', '<DOMAIN_NAME>')
 
 # Create/update a record
-# Keys must be valid domain names
 daab.set('mykey', 'myvalue')
 
 # Use glob search to find keys

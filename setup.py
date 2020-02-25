@@ -15,7 +15,7 @@ with io.open("README.md", "rt", encoding="utf8") as f:
 
 setup(
     name='daab',
-    version='0.1.1',
+    version='1.0.0',
     description='DNS as a database.',
     long_description=readme,
     long_description_content_type="text/markdown",
@@ -25,7 +25,7 @@ setup(
     keywords="database dns",
     py_modules=['daab'],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "License :: OSI Approved :: MIT License",

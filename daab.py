@@ -17,12 +17,16 @@ class Store(object):
 
     def __init__(self, record):
         self._record = record
-        self.key = record.name
-        self.value = record.data
+
+        v = record.data.split('=')
+        self.key = v[0]
+        self.value = ''.join(v[1:])
 
     def _set(self, value):
         self.value = value
-        self._record.data = value
+        data = f'{self.key}={self.value}'
+
+        self._record.data = data
         self._record.save()
 
     def to_dict(self):
@@ -60,15 +64,15 @@ class DAAB(object):
         if store:
             store._set(value)
         else:
-            store = Store(
-                digitalocean.Record(
-                    self._domain.create_new_domain_record(
-                        type='TXT',
-                        name=key,
-                        data=value
-                    )
-                )
+            record = digitalocean.Record(
+                **self._domain.create_new_domain_record(
+                    type='TXT',
+                    name='@',
+                    data=f'{key}={value}'
+                )['domain_record']
             )
+
+            store = Store(record)
 
         return store
 

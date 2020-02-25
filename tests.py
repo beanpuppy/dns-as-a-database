@@ -15,12 +15,12 @@ class TestDAAB(unittest.TestCase):
 
     def test_daab(self):
         # Test creating stores
-        key = f'test_scenario-{uuid.uuid4().hex}'
+        key = f'test_scenario:{uuid.uuid4().hex}'
         self.daab.set(key, 'I\'m doing a hecking test')
 
         # Test scanning stores
-        stores = self.daab.scan('test_scenario-*')
-        self.assertGreater(len(stores), 1)
+        stores = self.daab.scan('test_scenario:*')
+        self.assertGreater(len(stores), 0)
 
         # Test getting stores
         store = self.daab.get(key)

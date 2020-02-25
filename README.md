@@ -49,6 +49,10 @@ daab.get('mykey')
 daab.delete('mykey')
 ```
 
+## Tutorials
+
+Read the announcement blog [here](https://blog.justinduch.com/article/dns_as_a_database).
+
 ## License
 
 MIT.

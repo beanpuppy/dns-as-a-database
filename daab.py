@@ -35,8 +35,9 @@ class Store(object):
 
 class DAAB(object):
 
-    def __init__(self, token, domain_name):
+    def __init__(self, token, domain_name, hostname='@'):
         self._domain = digitalocean.Domain(token=token, name=domain_name)
+        self.hostname = hostname
 
     def _get_rows(self):
         return [Store(r) for r in self._domain.get_records() if r.type == 'TXT']
@@ -67,7 +68,7 @@ class DAAB(object):
             record = digitalocean.Record(
                 **self._domain.create_new_domain_record(
                     type='TXT',
-                    name='@',
+                    name=self.hostname,
                     data=f'{key}={value}'
                 )['domain_record']
             )

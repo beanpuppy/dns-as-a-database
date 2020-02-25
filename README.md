@@ -53,6 +53,10 @@ daab.delete('mykey')
 
 Read the announcement blog [here](https://blog.justinduch.com/article/dns_as_a_database).
 
+## Documentation
+
+Read the code, it's not that big.
+
 ## License
 
 MIT.
